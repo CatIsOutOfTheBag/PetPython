@@ -1,0 +1,24 @@
+# ----------------------------------------------#
+# Функции, словари, интерпретатор, файлы, модули
+# ----------------------------------------------#
+
+# Проверка орфографии на основании списка известных слов
+et_len = int(input())
+right_words = []
+while et_len > 0:
+    right_words.append(input().lower().strip())
+    et_len -= 1
+
+c_len = int(input())
+check_words = []
+while c_len > 0:
+    check_words.append(input().lower().strip())
+    c_len -= 1
+
+check_words = (' '.join(check_words)).split()
+error_words = set()
+for word in check_words:
+    if word not in right_words:
+        error_words.add(word)
+for w in error_words:
+    print(w)
