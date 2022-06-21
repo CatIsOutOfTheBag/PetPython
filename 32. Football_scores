@@ -1,0 +1,43 @@
+# ----------------------------------------------#
+# Функции, словари, интерпретатор, файлы, модули
+# ----------------------------------------------#
+
+
+# 32 Список игр футбольных команд с результатом матча.
+# Вывести сводную таблицу результатов всех матчей.
+# За победу команде начисляется 3 очка, за поражение — 0, за ничью — 1.
+# Вывод программы необходимо оформить следующим образом:
+# Команда:Всего_игр Побед Ничьих Поражений Всего_очков
+m = int(input())
+dct = {}
+def scores(a, b):
+    if a > b:
+        return 3
+    elif a == b:
+        return 1
+    return 0
+
+while m > 0:
+    line = input().split(';')
+    # print(line)
+    s1 = int(line[1])
+    s2 = int(line[3])
+    if line[0] not in dct:
+        dct[line[0]] = [scores(int(s1), int(s2))]
+    else:
+        dct[line[0]].append(scores(int(s1), int(s2)))
+
+    if line[2] not in dct:
+        dct[line[2]] = [scores(int(s2), int(s1))]
+    else:
+        dct[line[2]].append(scores(int(s2), int(s1)))
+    m -= 1
+
+for item in dct:
+    print(item, end='')
+    print(':', end='')
+    print(len(dct[item]), ' ', end='')
+    print(dct[item].count(3), ' ', end='')
+    print(dct[item].count(1), ' ', end='')
+    print(dct[item].count(0), ' ', end='')
+    print(sum(dct[item]))
