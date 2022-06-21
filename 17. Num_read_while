@@ -1,0 +1,27 @@
+# -------------------------------------------#
+# Циклы, строки, списки
+# -------------------------------------------#
+
+# Cчитывание чисел по одному, пока сумма введенных чисел не станет == 0
+numbers = []
+summa = int(input())
+numbers.append(summa)
+while summa:
+    a = int(input())
+    numbers.append(a)
+    summa += a
+print(sum([x * x for x in numbers]))
+
+# 18 Вывод последовательности 1 22 333 4444 55555
+# число повторяется столько раз, чему равно
+# количество элементов задается
+length = int(input())
+j = 0
+count = 0
+while length > 0:
+    j += 1
+    count = j
+    while count > 0 and length > 0:
+        print(str(j), end=' ')
+        count -= 1
+        length -= 1
