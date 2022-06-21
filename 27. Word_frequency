@@ -1,0 +1,20 @@
+# ----------------------------------------------#
+# Функции, словари, интерпретатор, файлы, модули
+# ----------------------------------------------#
+
+# Вывод самого частого слова в тексте и числа его вхождений
+def value_counter(my_string, my_dict):
+    for s in my_string.split(' '):
+        if s in my_dict:
+            my_dict[s] += 1
+        else:
+            my_dict[s] = 1
+
+my_dict = {}
+with open("dataset_3363_3(2).txt", 'r') as inpf:
+    for line in inpf:
+        line = line.strip().lower()
+        value_counter(line, my_dict)
+
+sorted_keys = sorted(my_dict, key=my_dict.get, reverse=True)
+print(sorted_keys[0], my_dict[sorted_keys[0]])
