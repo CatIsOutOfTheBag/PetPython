@@ -1,0 +1,30 @@
+# ----------------------------------------------#
+# Функции, словари, интерпретатор, файлы, модули
+# ----------------------------------------------#
+
+# Информация о среднем росте детей в каждом классе
+dct = {}
+with open("dataset_3380_5(3).txt", 'r') as inpf:
+    for line in inpf:
+        line = line.split()
+        if line[0] not in dct:
+            dct[line[0]] = [line[1:]]
+        else:
+            dct[line[0]].append(line[1:])
+
+hights = {}
+for item in dct:
+    summa = 0
+    #     print(item, dct[item])
+    for student in dct[item]:
+        summa += int(student[1])
+    hights[item] = summa / len(dct[item])
+
+sorted_hights = dict(sorted(hights.items(), key=lambda x: int(x[0])))
+
+print()
+for item in sorted_hights:
+    if sorted_hights[item] == 0:
+        print(item, '-')
+    else:
+        print(item, sorted_hights[item])
