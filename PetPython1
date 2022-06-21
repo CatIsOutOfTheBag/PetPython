@@ -590,7 +590,6 @@ with open("dataset_3380_5(3).txt", 'r') as inpf:
 hights = {}
 for item in dct:
     summa = 0
-    #     print(item, dct[item])
     for student in dct[item]:
         summa += int(student[1])
     hights[item] = summa / len(dct[item])
