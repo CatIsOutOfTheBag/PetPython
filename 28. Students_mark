@@ -1,0 +1,31 @@
+# ----------------------------------------------#
+# Функции, словари, интерпретатор, файлы, модули
+# ----------------------------------------------#
+
+# 28 Обзор успеваемости студентов по таблице
+# имя - оценка математика - оценка физика - оценка русский
+# вычисление средней оценки по каждому предмету для каждого студента
+# вычисление средней оценки по каждому предмету для всех студентов
+mean1 = mean2 = mean3 = 0.
+num_lines = 0.
+
+st_mean = []
+with open("dataset_3363_4.txt", 'r') as inpf:
+    for line in inpf:
+        num_lines += 1
+        line = line.strip().split(';')
+        mean1 += int(line[1])
+        mean2 += int(line[2])
+        mean3 += int(line[3])
+        st_mean.append((int(line[1]) + int(line[2]) + int(line[3])) / 3)
+
+print(st_mean)
+with open("res.txt", 'w') as otpf:
+    for st in st_mean:
+        otpf.write(str(st))
+        otpf.write('\n')
+    otpf.write(str(mean1 / num_lines))
+    otpf.write(' ')
+    otpf.write(str(mean2 / num_lines))
+    otpf.write(' ')
+    otpf.write(str(mean3 / num_lines))
