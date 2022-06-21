@@ -1,0 +1,20 @@
+# ----------------------------------------------#
+# Функции, словари, интерпретатор, файлы, модули
+# ----------------------------------------------#
+
+# 24 Подсчет числа слов в строке в формате слово:количество без повторений
+my_list = input().split()
+my_list[:] = [x.lower() for x in my_list]
+
+def num_count(my_list, my_dict):
+    for x in my_list:
+        if x in my_dict:
+            my_dict[x] += 1
+        else:
+            my_dict[x] = 1
+    return my_dict
+
+my_dict = {}
+num_count(my_list, my_dict)
+for item in sorted(my_dict):
+    print("%s %d" % (item, my_dict[item]))
