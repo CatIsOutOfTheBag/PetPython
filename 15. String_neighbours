@@ -1,0 +1,14 @@
+# -------------------------------------------#
+# Циклы, строки, списки
+# -------------------------------------------#
+
+# Для каждого элемента списка вывести сумму его соседей, циклично относительно длины строки
+string = input()
+splited = string.split()
+length = len(splited)
+
+if length == 1:
+    print(splited[0])
+else:
+    for i in range(length):
+        print(int(splited[(i + 1) % length]) + int(splited[(i - 1) % length]), end=' ')
