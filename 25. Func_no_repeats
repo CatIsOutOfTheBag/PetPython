@@ -1,0 +1,15 @@
+# ----------------------------------------------#
+# Функции, словари, интерпретатор, файлы, модули
+# ----------------------------------------------#
+
+# 25 Подсчет значения функции f без повторений
+n = int(input())
+counted_dict = {}
+while n > 0:
+    string = int(input())
+    if string in counted_dict:
+        print(counted_dict[string])
+    else:
+        counted_dict[string] = f(string)
+        print(counted_dict[string])
+    n -= 1
