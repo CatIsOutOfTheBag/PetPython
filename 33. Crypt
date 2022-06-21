@@ -1,0 +1,24 @@
+# ----------------------------------------------#
+# Функции, словари, интерпретатор, файлы, модули
+# ----------------------------------------------#
+
+# Зашифрование и расшифрование подстановки
+# abcd
+# *d%#
+sh1, sh2, enc, dec = input(), input(), input(), input()
+print('\n', sh1, '\n', sh2, '\n', enc, '\n', dec, '\n', )
+
+sh_dct = {}
+for i in zip(sh1, sh2):
+    sh_dct[i[0]] = i[1]
+print(sh_dct)
+
+print(enc)
+for s in enc:
+    print(sh_dct[s], end='')
+
+print(dec)
+for s in dec:
+    for key, item in sh_dct.items():
+        if item == s:
+            print(key, end='')
