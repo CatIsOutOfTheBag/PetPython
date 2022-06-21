@@ -1,0 +1,20 @@
+# -------------------------------------------#
+# Циклы, строки, списки
+# -------------------------------------------#
+
+# Алгоритм сжатия повторяющихся символов строки
+# 'aaaabbсaa' -> 'a4b2с1a2'
+string = input()
+s = string[0]
+count = 1
+res = string[0]
+
+for st in string[1:]:
+    if st == s:
+        count += 1
+    else:
+        res = res + str(count) + st
+        s = st
+        count = 1
+res = res + str(count)
+print(res)
