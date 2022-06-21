@@ -1,0 +1,26 @@
+# ----------------------------------------------#
+# Функции, словари, интерпретатор, файлы, модули
+# ----------------------------------------------#
+
+# Обратная операция сжатию текста: 'a3b4c2e10b1' -> 'aaabbbbcceeeeeeeeeeb'
+with open("dataset_3363_2.txt", 'r') as inpf:
+    line = inpf.readline().strip()
+
+with open("answer.txt", 'w') as otpf:
+    num = []
+    for i, s in enumerate(line):
+        if not s.isdigit():
+            if (len(num)):
+                length = int(''.join(map(str, num)))
+                while length > 0:
+                    otpf.write(symbol)
+                    length -= 1
+            num = []
+            symbol = s
+        else:
+            num.append(int(s))
+
+    length = int(''.join(map(str, num)))
+    while length > 0:
+        otpf.write(symbol)
+        length -= 1
